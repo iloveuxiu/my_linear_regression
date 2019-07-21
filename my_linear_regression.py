@@ -1,5 +1,6 @@
 from mxnet import nd, autograd
 import random
+import matplotlib
 
 
 #手工数据
