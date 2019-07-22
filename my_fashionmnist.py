@@ -51,7 +51,7 @@ def acc(data, net):
     for x, y in data:
         y = y.astype('float32')
         acc += (net(x).argmax(axis=1) == y).sum().asscalar()
-        n += y.size()
+        n += y.size
     return acc/n
 
 
@@ -70,7 +70,7 @@ for epoch in range(epochs):
         train_acc += (y_hat.argmax(axis=1) == label).sum().asscalar()
         n += label.size
     test_acc = acc(test_iter, net)
-    print('epoch %d, train_acc:%.3f, test_acc:%.3f' % (epoch + 1, train     _acc/n, test_acc))
+    print('epoch %d, train_acc:%.3f, test_acc:%.3f' % (epoch + 1, train_acc/n, test_acc))
 
 for X, y in test_iter:
     break
