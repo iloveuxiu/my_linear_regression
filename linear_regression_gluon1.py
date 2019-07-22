@@ -17,15 +17,19 @@ net.initialize(init.Normal(sigma=0.01))
 batch_size = 10
 lr = 0.03
 epochs = 5
+loss = gluon.loss.L2Loss()
 dataset = gluon.data.ArrayDataset(X, Y)
 data_iter = gluon.data.DataLoader(dataset, batch_size, shuffle=True)
 for epoch in range(epochs):
     for feature, label in data_iter:
         with autograd.record():
-            l = gluon.loss.L2Loss(net(feature), label)
+            l = loss(net(feature), label)
         l.backward()
         gluon.Trainer(net.collect_params(), 'sgd', {'learning_rate': 0.03}).step(batch_size)
-    train_loss = gluon.loss.L2Loss(net(X), Y)
+    train_loss = loss(net(X), Y)
     print('epoch %d, train_loss: %.3f' % (epoch + 1, train_loss.mean().asnumpy()))
+
+print(true_w, net[0].weight.data())
+print(true_b, net[0].bias.data())
 
 
