@@ -1,5 +1,6 @@
 from mxnet.gluon import data as gdata
 import d2lzh as d2l
+import matplotlib
 
 train_data = gdata.vision.FashionMNIST(train=True)
 test_data = gdata.vision.FashionMNIST(train=False)
@@ -10,3 +11,4 @@ images, labels = train_data[0:9]
 _, figs = d2l.plt.subplots(1, len(images), figsize=(12, 12))
 for f, image, label in zip(figs, images, labels):
     f.imshow(image.reshape((28, 28)).asnumpy())
+matplotlib.pyplot.show()
