@@ -32,4 +32,4 @@ for epoch in range(epochs):
 print(true_w, net[0].weight.data())
 print(true_b, net[0].bias.data())
 
-
+#add something to try how git works
