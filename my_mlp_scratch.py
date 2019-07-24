@@ -68,8 +68,8 @@ for epoch in range(epochs):
         sgd([w1, w2, b1, b2], lr, batch_size)
         train_loss += l.asscalar()
         n += label.size
-    test_loss = test_loss(test_iter, net, w1, w2, b1, b2)
-    print('epoch:%d, train_loss:%.3f, test_loss:%.3f' % (epoch + 1, train_loss/n, test_loss))
+    test_loss1 = test_loss(test_iter, net, w1, w2, b1, b2)
+    print('epoch:%d, train_loss:%.3f, test_loss:%.3f' % (epoch + 1, train_loss/n, test_loss1))
 
 
 
